@@ -3,7 +3,7 @@ script(src="/components/capacitor.js" type="module")
 link(rel="stylesheet" href="/capacitor.styl")
 
 capacitor-router
-  capacitor-route#home(pattern="^$" src="pages/home.js")
+  capacitor-route#home(pattern="^$" script="pages/home.js")
     include pages/home.pug
   capacitor-route#post(pattern="^wow$")
     include pages/wow.pug

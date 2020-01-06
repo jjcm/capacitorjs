@@ -22,10 +22,10 @@
     h2 I still think it's dumb - you'll have like 8 scripts all trying to run on DOMContentLoaded!
     .columns
       .column
-        p Agree with the first part, but as for the second you can add listeners to the <code>routeactivate</code> event. You can also specify a <code>src</code> attribute for the route as a shorthand to bind to a few events:
+        p Agree with the first part, but as for the second you can add listeners to the <code>routeactivate</code> event. You can also specify a <code>script</code> attribute for the route as a shorthand to bind to a few events:
         pre
           code.
-            &lt;capacitor-route pattern=".*" <span>src="hello.js"</span>&gt; 
+            &lt;capacitor-route pattern=".*" <span>script="hello.js"</span>&gt; 
               &lt;h1&gt;Hello, world&lt;/h1&gt; 
             &lt;capcitor-route&gt;
       .column

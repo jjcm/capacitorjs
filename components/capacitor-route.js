@@ -32,7 +32,7 @@ export default class CapacitorRouter extends CapacitorComponent {
   }
 
   static get observedAttributes() {
-    return ['pattern', 'active', 'src']
+    return ['pattern', 'active', 'script']
   }
 
   attributeChangedCallback(name, oldValue, newValue){
@@ -40,7 +40,7 @@ export default class CapacitorRouter extends CapacitorComponent {
       case "pattern":
         this.pattern = new RegExp(newValue)
         break
-      case "src":
+      case "script":
         fetch(newValue).then(res => res.text()).then(script => {
           let options = eval(script)
           if(options.onActivate) this.addEventListener('routeactivate', options.onActivate)
