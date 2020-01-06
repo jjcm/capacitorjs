@@ -1,0 +1,24 @@
+{
+  "name": "capcitor-js",
+  "version": "1.0.0",
+  "description": "Make the web fast again - dynamically cache pages on the front end, and inject them when they're needed",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjcm/capacitor-components.git"
+  },
+  "author": "Jake Miller",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jjcm/capacitor-components/issues"
+  },
+  "homepage": "https://github.com/jjcm/capacitor-components#readme",
+  "dependencies": {
+    "mime-types": "^2.1.24",
+    "pug": "^2.0.4",
+    "stylus": "^0.54.7"
+  }
+}
