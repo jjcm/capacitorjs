@@ -25,6 +25,20 @@ capacitor-route > *
   margin: 0 auto
   padding: 24px 36px
 
+.nav
+  display: flex
+  align-items: center
+  capacitor-link
+    text-decoration: none
+    color: #bbc7de
+    font-size: 20px
+    margin-left: 28px
+    font-weight: 100
+    line-height: 34px
+    &.active
+      border-bottom: 1px solid rgba(187, 199, 222, 0.3)
+  svg
+    margin-right: auto
 #home
   svg
     color: var(--b3)
@@ -359,9 +373,6 @@ pre
 
 capacitor-link
   color: #157992
-
-svg
-  margin-bottom: 10px
 
 h2
   margin-top: 28px

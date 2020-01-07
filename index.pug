@@ -1,11 +1,17 @@
 title Capacitor JS
 script(src="/components/capacitor.js" type="module")
-link(rel="stylesheet" href="/capacitor.styl")
+link(rel="stylesheet" href="/styles/capacitor.styl")
+link(rel="stylesheet" href="/styles/style.styl")
+link(rel="stylesheet" href="/styles/prism.css")
 
 capacitor-router
   capacitor-route#home(pattern="^$" script="pages/home.js")
     include pages/home.pug
-  capacitor-route#post(pattern="^wow$")
+  capacitor-route(pattern="^wow$")
     include pages/wow.pug
+  capacitor-route#docs(pattern="^docs$")
+    include pages/docs.pug
   capacitor-route#post(pattern=".*")
     h1 404
+
+script(src="/prism.js")

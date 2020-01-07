@@ -1,0 +1,139 @@
+@require 'akvariables.styl'
+
+$sidebar_width= 314px 
+
+body
+  margin: 0
+  background-color: $ak-color-NA100
+  color: $ak-color-LB
+  padding: 20px 0px 200px
+
+h2
+  span
+    padding: 0 8px 
+    border-radius: 3px;
+    background-color: #496180
+    color: #9dc4f7
+    font-size: 10px
+    font-weight: bold
+    display: inline-block
+    line-height: 19px
+    transform: translateY(-3px)
+    margin-right: 8px
+    filter: saturate(1.5)
+
+a
+  color: $ak-color-B100
+  &:hover
+    color: $ak-color-B300
+    
+p
+  opacity: 0.8
+  
+img
+  width: 100%
+
+*
+  box-sizing: border-box
+  
+#content
+  margin-left: $sidebar_width + 200px
+  margin-right: 200px
+  margin: 0
+  padding: 0 40px
+  transition: margin-left 0.3s
+  &.expand
+    margin-left: 200px
+    transition: margin-left 0.3s 
+  &.no-sidebar
+    margin-left: 200px
+  
+
+.quote
+  font-size: 28px
+  font-family: georgia 
+  font-style: italic
+  line-height: 40px
+  margin-top: 48px
+.attribution
+  padding-left: 43px
+  margin-bottom: 48px
+  color: white
+  &:before
+    content: '-'
+
+::-webkit-scrollbar
+  width: 12px
+  height: 10px
+  background: $ak-color-NA50
+
+  &-track
+    -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,1)
+
+  &-thumb
+    background-color: $ak-color-NA200
+    
+  &-corner
+    background-color: $ak-color-NA50
+
+h1,h2,h3
+  color: white
+
+h2
+  margin-top: 24px
+  font-weight: 100
+  border-bottom: 1px solid rgba(255,255,255,0.3)
+  padding-bottom: 8px
+  text-transform: uppercase
+  letter-spacing: 1px
+  margin-bottom: 8px
+
+h4
+  font-weight: bold
+
+ul
+  padding-left: 20px
+li
+  pre[class*="language-"]
+    margin-left: -2px
+h3
+  margin-bottom: 10px
+  opacity: 0.3
+  text-transform: uppercase
+
+.param
+  font-family: monospace
+  font-size: 16px
+  color: #fff
+  span
+    color: $b100
+
+
+label.code
+  display: block
+  width: 100%
+  height: 28px
+  background-color: $ak-color-NA50
+  position: relative
+  font-size: 10px
+  top: 9px
+  padding-left: 6px
+  border-radius: 4px 4px 0 0
+
+.output.code
+  background-color: $ak-color-NA50
+  font-size: 12px
+  color: $ak-color-N70
+  padding-left: 16px
+  padding-top: 10px
+  &:before
+    content: '-->'
+    color: $ak-color-R300
+  pre
+    margin-bottom: 14px
+    border: 1px solid $ak-color-R300
+    display: inline-block
+    border-radius: 7px
+    line-height: 14px
+    padding: 0 4px
+

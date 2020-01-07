@@ -6,6 +6,7 @@ var path = require('path')
 var pug = require('pug')
 var mime = require('mime-types')
 var stylus = require('stylus')
+var pretty = require('pretty')
 
 const codeFilter = {
   filters: {
@@ -53,6 +54,7 @@ var server = http.createServer(function (req, res) {
   else {
     console.log(req.method + ' | ' + 'PATH   | ' + req.url)
     let html = pug.renderFile('index.pug', codeFilter)
+    html = pretty(html)
     res.end(html, 'utf-8')
   }
 })
@@ -72,6 +74,7 @@ var handler = {
       }
       else {
         var html = pug.render(data, codeFilter)
+        html = pretty(html)
         res.writeHead(200, { 'Content-Type' : 'text/html' })
         res.end(html, 'utf-8')
       }
@@ -112,6 +115,7 @@ var handler = {
         if(!filePath.match(/\/$/)) filePath += '/'
 
         html = pug.renderFile(filePath + 'index.pug', codeFilter)
+        html = pretty(html)
       }
       else {
         html = '<h1>Directory Listing</h1><ul>'
