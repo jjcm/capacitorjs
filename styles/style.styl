@@ -4,8 +4,8 @@ $sidebar_width= 314px
 
 body
   margin: 0
-  background-color: $ak-color-NA100
-  color: $ak-color-LB
+  background-color: var(--n3)
+  color: var(--n16)
   padding: 20px 0px 200px
 
 h2
@@ -50,11 +50,24 @@ img
   
 
 .quote
-  font-size: 28px
+  font-size: 24px
   font-family: georgia 
   font-style: italic
   line-height: 40px
   margin-top: 48px
+  &:before
+  &:after
+    content: '\201C'
+    font-size: 40px
+    margin-right: 8px
+    line-height: 24px
+    position: relative
+    top: 8px
+    opacity: 0.5
+  &:after
+    content: '\201D'
+    margin-right: 0px
+    margin-left: 8px
 .attribution
   padding-left: 43px
   margin-bottom: 48px
@@ -76,8 +89,8 @@ img
   &-corner
     background-color: $ak-color-NA50
 
-h1,h2,h3
-  color: white
+h1,h2,h3, .quote
+  color: var(--n18)
 
 h2
   margin-top: 24px
@@ -137,3 +150,6 @@ label.code
     line-height: 14px
     padding: 0 4px
 
+
+pre[class*="language-"]:first-child
+  margin-top: 16px

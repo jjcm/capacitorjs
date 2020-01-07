@@ -9,7 +9,7 @@ capacitor-router
     include pages/home.pug
   capacitor-route(pattern="^wow$")
     include pages/wow.pug
-  capacitor-route#docs(pattern="^docs$")
+  capacitor-route#docs(pattern="^docs$" script="pages/docs.js")
     include pages/docs.pug
   capacitor-route#post(pattern=".*")
     h1 404

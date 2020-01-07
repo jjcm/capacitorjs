@@ -17,7 +17,8 @@
   .loading-block(load-order="secondary")
     h2 How it works
     p If you inspect this page, you'll notice this landing page is contained in a 
-    <pre class=""><code class="language-filename">&lt;capacitor-route id="home" <span>pattern="^$"</span> active&gt;</code></pre>
+    :code(html)
+      <capacitor-route id="home" pattern="^$" active>
     p Since the url path matches the pattern, the route knows to activate itself. Routes that aren't currently active remove themselves from the DOM tree. 
       
   .loading-block(load-order="tertiary")
