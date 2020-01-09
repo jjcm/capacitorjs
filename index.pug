@@ -11,7 +11,9 @@ capacitor-router
     include pages/wow.pug
   capacitor-route#docs(pattern="^docs$" script="pages/docs.js")
     include pages/docs.pug
-  capacitor-route#post(pattern=".*")
-    h1 404
+  capacitor-route#404(pattern=".*")
+    #404-container
+      h1 404
+      p This is a generic 404 page, because that particular route didn't match any pattern. You can see that this route has a catch all regex for things that don't match. 
 
 script(src="/prism.js")
