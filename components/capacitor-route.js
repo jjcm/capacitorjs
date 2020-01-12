@@ -79,10 +79,22 @@ export default class CapacitorRouter extends CapacitorComponent {
     }
   }
 
-  registerPage(options){
-    if(options.onActivate) this.addEventListener('routeactivate', options.onActivate)
-    if(options.onDeactivate) this.addEventListener('routedeactivate', options.onDeactivate)
-    if(this.active) this.onActivate()
+  test(){
+    let path
+    switch(this.getAttribute('test')) {
+      case 'hash':
+        path = window.location.hash
+        break
+      case 'both':
+        path = window.location.pathname + window.location.hash
+        break
+      default:
+        path = window.location.pathname
+        break
+    }
+
+    if(path.charAt[0] == '/') return this.pattern == path
+    return this.pattern.test(path)
   }
 
   _detachChildren(){
