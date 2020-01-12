@@ -27,7 +27,7 @@ export default class CapacitorLink extends CapacitorComponent {
   // click on links, so we wrap our slot in an <a> rather than just binding the click event
   // to the host.
   html(){ return `
-    <a @click=localLink ?refresh=${this.hasAttribute('refresh')}>
+    <a @click=localLink ?fresh=${this.hasAttribute('fresh')}>
       <slot></slot>
     </a>
   `}
@@ -38,9 +38,8 @@ export default class CapacitorLink extends CapacitorComponent {
 
   localLink(e){
     e.preventDefault()
-    console.log('heyo')
     let link = e.currentTarget
     window.history.pushState(null, null, link.href)
-    window.dispatchEvent(new CustomEvent('link', {detail: link.hasAttribute('refresh') ? 'refresh' : ''}))
+    window.dispatchEvent(new CustomEvent('link', {detail: link.hasAttribute('fresh') ? 'fresh' : ''}))
   }
 }

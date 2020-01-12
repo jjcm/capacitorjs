@@ -16,15 +16,13 @@ export default class CapacitorRouter {
     path = path.slice(1)
     if(path == this._currentPath) return 0
     this._currentPath = path
-    this.route(path, e && e.detail == 'refresh')
+    this.route(path, e && e.detail == 'fresh')
   }
 
-  route(path, refresh){
-    let matchFound = false
+  route(path, fresh){
     document.querySelectorAll('capacitor-route').forEach(route=>{
-      if(!matchFound && route.pattern.test(path)){
-        matchFound = true
-        route.activate(refresh)
+      if(route.test()){
+        route.activate(fresh)
       } else route.deactivate()
     })
   }

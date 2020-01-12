@@ -27,18 +27,25 @@ export default class CapacitorRouter extends CapacitorComponent {
     this.domCopy = this.innerHTML
     this._detachChildren()
 
-    let pattern = this.getAttribute('pattern') || ''
-    this.pattern = new RegExp(pattern)
+    let path = this.getAttribute('path') || ''
+    this.path = new RegExp(path)
+
+    let parentRoute = this.parentElement.closest('capacitor-route')
+    if(parentRoute) {
+      parentRoute.addEventListener('routeactivate', ()=>{
+        if(this.test()) this.activate()
+      })
+    }
   }
 
   static get observedAttributes() {
-    return ['pattern', 'active', 'script']
+    return ['path', 'active', 'script']
   }
 
   attributeChangedCallback(name, oldValue, newValue){
     switch(name){
-      case "pattern":
-        this.pattern = new RegExp(newValue)
+      case "path":
+        this.path = new RegExp(newValue)
         break
       case "script":
         fetch(newValue).then(res => res.text()).then(script => {
@@ -54,11 +61,11 @@ export default class CapacitorRouter extends CapacitorComponent {
     return this.hasAttribute('active')
   }
 
-  activate(refresh){
+  activate(fresh){
     if(this.hasAttribute('active')) return 0
-    // If refresh is true, we load a fresh copy of the route. Otherwise we load
+    // If fresh is true, we load a fresh copy of the route. Otherwise we load
     // the previous state.
-    if(refresh) this.innerHTML = this.domCopy
+    if(fresh) this.innerHTML = this.domCopy
     else this._attachChildren()
 
     // Very briefly add the activating class, followed immediately by the active
@@ -67,6 +74,8 @@ export default class CapacitorRouter extends CapacitorComponent {
     setTimeout(()=>{
       this.removeAttribute('activating')
       this.setAttribute('active', '')
+      console.log('activating')
+      console.log(this)
       let e = new CustomEvent('routeactivate', {bubbles: false})
       this.dispatchEvent(e)
     },1)
@@ -93,8 +102,8 @@ export default class CapacitorRouter extends CapacitorComponent {
         break
     }
 
-    if(path.charAt[0] == '/') return this.pattern == path
-    return this.pattern.test(path)
+    if(this.getAttribute('path').charAt(0) == '/') return this.getAttribute('path') == path
+    return this.path.test(path)
   }
 
   _detachChildren(){
