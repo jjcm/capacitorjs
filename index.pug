@@ -20,11 +20,11 @@ link(rel="stylesheet" href="/styles/prism.css")
     capacitor-route(path="/")
       capacitor-link(href="/").active Home
       capacitor-link(href="/docs") Docs
-      capacitor-link(href="https://github.com/jjcm/capacitorjs") Repo
+      a(href="https://github.com/jjcm/capacitorjs") Repo
     capacitor-route#docs(path="/docs")
       capacitor-link(href="/") Home
       capacitor-link(href="/docs").active Docs
-      capacitor-link(href="https://github.com/jjcm/capacitorjs") Repo
+      a(href="https://github.com/jjcm/capacitorjs") Repo
 <capacitor-route path="/" script="pages/home.js" fresh>
   include pages/home.pug
 </capacitor-route>

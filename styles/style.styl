@@ -1,6 +1,23 @@
-@require 'akvariables.styl'
-
-$sidebar_width= 314px 
+:root
+  --n0: hsl(220, 28%, 4%)
+  --n1: hsl(220, 29%, 7%)
+  --n2: hsl(220, 30%, 10%)
+  --n3: hsl(220, 31%, 14%)
+  --n4: hsl(220, 32%, 17%)
+  --n5: hsl(220, 33%, 21%)
+  --n6: hsl(220, 34%, 25%)
+  --n7: hsl(220, 35%, 29%)
+  --n8: hsl(220, 36%, 33%)
+  --n9: hsl(220, 36%, 38%)
+  --n10: hsl(220, 36%, 42%)
+  --n11: hsl(220, 36%, 47%)
+  --n12: hsl(220, 36%, 52%)
+  --n13: hsl(220, 36%, 58%)
+  --n14: hsl(220, 36%, 63%)
+  --n15: hsl(220, 36%, 69%)
+  --n16: hsl(220, 36%, 75%)
+  --n17: hsl(220, 36%, 81%)
+  --n18: hsl(220, 36%, 87%)
 
 body
   margin: 0
@@ -36,19 +53,6 @@ img
 *
   box-sizing: border-box
   
-#content
-  margin-left: $sidebar_width + 200px
-  margin-right: 200px
-  margin: 0
-  padding: 0 40px
-  transition: margin-left 0.3s
-  &.expand
-    margin-left: 200px
-    transition: margin-left 0.3s 
-  &.no-sidebar
-    margin-left: 200px
-  
-
 .quote
   font-size: 24px
   font-family: georgia 
@@ -79,15 +83,16 @@ img
   width: 12px
   height: 10px
   background: $ak-color-NA50
+  background: var(--n2)
 
   &-track
     -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,1)
 
   &-thumb
-    background-color: $ak-color-NA200
+    background-color: var(--n6)
     
   &-corner
-    background-color: $ak-color-NA50
+    background-color: var(--n4)
 
 h1,h2,h3, .quote
   color: var(--n18)
@@ -113,39 +118,3 @@ h3
   margin-bottom: 10px
   opacity: 0.3
   text-transform: uppercase
-
-.param
-  font-family: monospace
-  font-size: 16px
-  color: #fff
-  span
-    color: $b100
-
-
-label.code
-  display: block
-  width: 100%
-  height: 28px
-  background-color: $ak-color-NA50
-  position: relative
-  font-size: 10px
-  top: 9px
-  padding-left: 6px
-  border-radius: 4px 4px 0 0
-
-.output.code
-  background-color: $ak-color-NA50
-  font-size: 12px
-  color: $ak-color-N70
-  padding-left: 16px
-  padding-top: 10px
-  &:before
-    content: '-->'
-    color: $ak-color-R300
-  pre
-    margin-bottom: 14px
-    border: 1px solid $ak-color-R300
-    display: inline-block
-    border-radius: 7px
-    line-height: 14px
-    padding: 0 4px
