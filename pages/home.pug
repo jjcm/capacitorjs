@@ -1,6 +1,6 @@
 #home.page-container
   p A client-side, webcomponent based router for lightning fast page navigation. With Capacitor, you send the entire site all at once and let it decide what's shown.
-  p Don't believe me when I say it's fast? Try <capacitor-link href="wow">clicking</capacitor-link> some <capacitor-link href="#such-speed">links</capacitor-link>. <capacitor-route test="hash" path="such-speed" style="display: inline;"><span>Neat! It even recognizes hashes!</span></capcitor-route>
+  p Don't believe me when I say it's fast? Try <capacitor-link href="wow">clicking</capacitor-link> some <capacitor-link href="#such-speed">links</capacitor-link>. <capacitor-route test="hash" path="such-speed" style="display: inline;"><span>Neat! It even recognizes hashes!</span></capacitor-route>
 
   #get-library
     a(href="compiled/capacitor.js") Download
@@ -19,7 +19,7 @@
     .quote Wont &lt;a&gt; tags force a page refresh though?
     p Yea toats. That's why we use a happy helper tag for links:
     :code(html)
-      <capacitor-link href="wow">Hello, world</capcitor-link>
+      <capacitor-link href="wow">Hello, world</capacitor-link>
 
     .quote I still think you're dumb - you'll have like 8 scripts all trying to run on DOMContentLoaded!
     .columns
@@ -28,7 +28,7 @@
         :code(html)
           <capacitor-route path=".*" script="hello.js"> 
             <h1>Hello, world</h1> 
-          <capcitor-route>
+          <capacitor-route>
       .column
         :code(javascript)
           ({
