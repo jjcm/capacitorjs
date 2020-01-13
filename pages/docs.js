@@ -2,7 +2,7 @@
   init: () => {
   },
   onActivate: () => {
-    document.title = "Nonio - A platform for creators"
+    document.title = "CapacitorJS - Docs"
     Prism.highlightAll()
   },
   onDeactivate: () => {
