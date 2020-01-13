@@ -16,6 +16,10 @@
     p Since the url path matches the path, the route knows to activate itself. Routes that aren't currently active remove themselves from the DOM tree. 
       
   .block
+    .quote How is this different than React?
+    p Two main differences. First and foremost with CapacitorJS you send every page at once on the initial page load, which Capacitor then caches for page navigation. This means navigating between pages on your site will take about a single frame to render since it doesn't need to contact the server, making for a super snappy experience. For extremely large sites however, React would still be a better choice simply because the initial payload would be too large.
+    p The other difference is it makes for a somewhat more declarative DOM. The DOM shows the entire structure of the site, which makes things a little more transparent. You can argue whether or not this is a good or a bad thing.
+
     .quote Wont &lt;a&gt; tags force a page refresh though?
     p Yea toats. That's why we use a happy helper tag for links:
     :code(html)
