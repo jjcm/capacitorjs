@@ -6,13 +6,13 @@
     a(href="compiled/capacitor.js") Download
     pre
       code https://capacitor.non.io/capacitor.js
-      code 6.1kb
+      code 6.2kb
 
   .block
     h2 How it works
     p If you inspect this page, you'll notice this landing page is contained in a 
     :code(html)
-      <capacitor-route path="^$" script="pages/home.js" active>
+      <capacitor-route path="^$" script="pages/home.js" fresh active>
     p Since the url path matches the path, the route knows to activate itself. Routes that aren't currently active remove themselves from the DOM tree. 
       
   .block

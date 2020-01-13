@@ -25,13 +25,13 @@ link(rel="stylesheet" href="/styles/prism.css")
       capacitor-link(href="/") Home
       capacitor-link(href="/docs").active Docs
       capacitor-link(href="https://github.com/jjcm/capacitorjs") Repo
-capacitor-route(path="/" script="pages/home.js")
+<capacitor-route path="/" script="pages/home.js" fresh>
   include pages/home.pug
+</capacitor-route>
 capacitor-route(path="wow$")
   include pages/wow.pug
 capacitor-route(path="/docs" script="pages/docs.js")
   include pages/docs.pug
 
 script(src="/prism.js")
-script(src="/components/capacitor.js" type="module")
-//script(src="/compiled/capacitor.js")
+script(src="/capacitor.js" type="module")

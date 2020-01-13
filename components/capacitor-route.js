@@ -1,6 +1,6 @@
 import CapacitorComponent from './capacitor-component.js'
 
-export default class CapacitorRouter extends CapacitorComponent {
+export default class CapacitorRoute extends CapacitorComponent {
   constructor() {
     super()
   }
@@ -65,7 +65,7 @@ export default class CapacitorRouter extends CapacitorComponent {
     if(this.hasAttribute('active')) return 0
     // If fresh is true, we load a fresh copy of the route. Otherwise we load
     // the previous state.
-    if(fresh) this.innerHTML = this.domCopy
+    if(fresh || this.hasAttribute('fresh')) this.innerHTML = this.domCopy
     else this._attachChildren()
 
     // Very briefly add the activating class, followed immediately by the active
@@ -74,8 +74,6 @@ export default class CapacitorRouter extends CapacitorComponent {
     setTimeout(()=>{
       this.removeAttribute('activating')
       this.setAttribute('active', '')
-      console.log('activating')
-      console.log(this)
       let e = new CustomEvent('routeactivate', {bubbles: false})
       this.dispatchEvent(e)
     },1)

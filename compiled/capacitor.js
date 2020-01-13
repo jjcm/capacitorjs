@@ -54,8 +54,16 @@ class CapacitorRoute extends CapacitorComponent {
     */
     this.domCopy = this.innerHTML
     this._detachChildren()
+
     let path = this.getAttribute('path') || ''
     this.path = new RegExp(path)
+
+    let parentRoute = this.parentElement.closest('capacitor-route')
+    if(parentRoute) {
+      parentRoute.addEventListener('routeactivate', ()=>{
+        if(this.test()) this.activate()
+      })
+    }
   }
 
   static get observedAttributes() {
@@ -85,7 +93,7 @@ class CapacitorRoute extends CapacitorComponent {
     if(this.hasAttribute('active')) return 0
     // If fresh is true, we load a fresh copy of the route. Otherwise we load
     // the previous state.
-    if(fresh) this.innerHTML = this.domCopy
+    if(fresh || this.hasAttribute('fresh')) this.innerHTML = this.domCopy
     else this._attachChildren()
 
     // Very briefly add the activating class, followed immediately by the active
@@ -146,9 +154,11 @@ class CapacitorRouter {
     window.addEventListener('link', this.onHashChange.bind(this))
     this.onHashChange()
   }
+
   onPopState(e){
     this.onHashChange()
   }
+
   onHashChange(e){
     let path = window.location.pathname + window.location.hash
     path = path.slice(1)
@@ -156,6 +166,7 @@ class CapacitorRouter {
     this._currentPath = path
     this.route(path, e && e.detail == 'fresh')
   }
+
   route(path, fresh){
     document.querySelectorAll('capacitor-route').forEach(route=>{
       if(route.test()){

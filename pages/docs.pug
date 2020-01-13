@@ -53,8 +53,11 @@
 
         // this will match any path that has #foo at the end.
         <capacitor-route path="foo" test="hash">...</capacitor-route>
-            
-
+    .attribute-container
+      .attribute fresh
+      p Boolean attribute, default is false. If true, the route will load a fresh version of the DOM inside of it. If false, will use the previous state of the DOM. A good example of this is if the page has a &lt;textarea&gt; tag, and the textarea has some text in it, if fresh is false that text will still be present if you navigate away and back. If it's true, the textarea will be empty.
+      :code(html)
+        <capacitor-route path="/foo" fresh>...</capacitor-route>
 
   .component.block
     h2 capacitor-link
@@ -63,7 +66,7 @@
       <capacitor-link href="foo">foo<capacitor-link>
     .attribute-container
       .attribute fresh
-      p Boolean attribute, default is false. If true, the route that it matches will load a fresh version of the DOM inside of it. If false, will use the previous state of the DOM. A good example of this is if the page has a &lt;textarea&gt; tag, and the textarea has some text in it, if fresh is false that text will still be present if you navigate away and back. If it's true, the textarea will be empty.
+      p Boolean attribute, default is false. If true, it forces the route that it matches to load a fresh version of the DOM inside of it. If false, will use the previous state of the DOM. A good example of this is if the page has a &lt;textarea&gt; tag, and the textarea has some text in it, if fresh is false that text will still be present if you navigate away and back. If it's true, the textarea will be empty. 
       :code(html)
         <capacitor-link href="foo" fresh>foo<capacitor-link>
     
